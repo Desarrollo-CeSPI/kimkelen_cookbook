@@ -1,6 +1,6 @@
-# Choique cookbook
+# Kimkëlen cookbook
 
-Instala Kimkelen considerando DB mysql, apache y el producto en si
+Instala Kimkëlen considerando DB mysql, apache y el producto en si
 
 ## Usando Vagrant para probarlo rápidamente
 
