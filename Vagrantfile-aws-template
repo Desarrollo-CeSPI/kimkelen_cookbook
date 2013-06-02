@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
       },
       :php => {
         :directives => {
-          :memory_limit => "128M",
+          :memory_limit => "256M",
           :post_max_size => "22M",
           :short_open_tag => "off",
           :upload_max_filesize => "20M"
