@@ -1,0 +1,49 @@
+<VirtualHost *:<%= @params[:port] || "80" %> >
+        ServerAdmin <%= @params[:admin_mail] %>
+        ServerName <%= @params[:server_name] || node.hostname %>
+        <% if @params[:server_alias] && Array(@params[:server_alias]).any? %>
+        ServerAlias <% Array(@params[:server_alias]).join(" ") %>
+        <% end %>
+
+        DocumentRoot <%= @params[:doc_root] %>
+
+        <Directory <%= @params[:doc_root] %>>
+                Options FollowSymLinks
+                AllowOverride None
+                Order allow,deny
+                allow from all
+
+                RewriteEngine On
+
+                # uncomment the following line, if you are having trouble
+                # getting no_script_name to work
+                #RewriteBase /
+
+                # we skip all files with .something
+                #RewriteCond %{REQUEST_URI} \..+$
+                #RewriteCond %{REQUEST_URI} !\.html$
+                #RewriteRule .* - [L]
+
+                # we check if the .html version is here (caching)
+                RewriteRule ^$ index.html [QSA]
+                RewriteRule ^([^.]+)$ $1.html [QSA]
+                RewriteCond %{REQUEST_FILENAME} !-f
+
+                # no, so we redirect to our front web controller
+                RewriteRule ^(.*)$ index.php [QSA,L]
+
+        </Directory>
+
+        <Files ~ "_dev\.php">
+            deny from all
+        </Files>
+
+        <LocationMatch /uploads/\.*>
+             php_admin_flag engine off
+        </LocationMatch>
+
+        ErrorLog ${APACHE_LOG_DIR}/<%= @application_name %>-error.log
+        LogLevel warn
+        CustomLog ${APACHE_LOG_DIR}/<%= @application_name %>.log combined
+</VirtualHost>
+

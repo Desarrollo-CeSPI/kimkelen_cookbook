@@ -1,0 +1,16 @@
+.vagrant
+Berksfile.lock
+Vagrantfile-aws
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
