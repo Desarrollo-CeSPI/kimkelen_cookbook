@@ -6,7 +6,7 @@ Instala Kimkëlen considerando DB mysql, apache y el producto en si
 
 Para probar el producto en forma rápida, sugerimos:
 
-* Instalar "Vagrant":http://www.vagrantup.com/ siguiendo las instrucciones del
+* Instalar [Vagrant](http://www.vagrantup.com) siguiendo las instrucciones del
   producto
 
 * Instalar el plugin de Berkshelf 
@@ -31,7 +31,7 @@ vagrant up
 
   * Acceder a: http://33.33.33.12
     * El usuario y contraseña por defecto son los especificados en el [README de
-      kimkelen](https://github.com/Desarrollo-CeSPI/kimkelen)
+      kimkelen](https://github.com/Desarrollo-CeSPI/kimkelen#atributos)
 
 >La dirección ip puede cambiarse editando Vagrantfile
 
