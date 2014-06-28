@@ -11,6 +11,7 @@ template "#{node['php']['conf_dir']}/../apache2/php.ini" do
   group "root"
   mode "0644"
   cookbook 'php'
+  variables(:directives => node['php']['directives'])
   notifies :restart, "service[apache2]"
 end
 
